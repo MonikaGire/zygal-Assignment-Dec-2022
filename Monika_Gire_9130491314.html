@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body,
+        html {
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex
+        }
+
+        .m_main-section {
+            height: 500px;
+            width: 800px
+        }
+
+        .m_main-section .m_row {
+            width: 100%;
+            height: calc(100%/3);
+            display: flex
+        }
+
+        .m_row.m_center {}
+
+        .m_block {
+            height: 100%;
+            width: 200px;
+            display: flex
+        }
+
+        .m_block p {
+            font-size: 20px;
+            color: black
+        }
+
+        .m_block1 {
+            background: red
+        }
+
+        .m_block2 {
+            background: yellow
+        }
+
+        .m_block3 {
+            background: green
+        }
+
+        .m_block4 {
+            background: orange
+        }
+
+        .m_btn {
+            padding: 10px
+        }
+
+        .m_instruction-section {
+            margin-bottom: 50px
+        }
+
+        .m_instruction-section p {
+            margin-bottom: 10px;
+            color: #000;
+            font-size: 18px;
+            font-weight: bold
+        }
+
+        .m_instruction-section ul {
+            font-size: 16px;
+            color: #000;
+            list-style: none
+        }
+
+        .m_instruction-section ul li {
+            margin-bottom: 10px
+        }
+    </style>
+</head>
+
+<body><u></u>
+
+
+
+    <div>
+        <div class="m_instruction-section">
+            <p>Task to perform :</p>
+            <ul>
+                <li>1. On click of clockwise button the colors within block should move in clockwise direction
+                    <br>
+                    On clockwise button click - <br>
+                    Red Color of block 1 should be applied to block 2, yellow color of block 2 should be applied to
+                    block 3, green color of block 3 should be applied to block 4 and orange color of block 4 should be
+                    applied to block 1.<br>
+                </li>
+                <li>2. On click of anti-clockwise button the colors within block should move in anti-clockwise
+                    direction.
+                    <br>
+                    Same as above but in reverse direction.
+                </li>
+                <li>3. This color switch(apply) cycle should work for n number of clicks and not just one click.
+                </li>
+                <li>4. You can use javascript/jQuery.
+                </li>
+            </ul>
+        </div>
+
+        <div class="m_main-section">
+
+            <div class="m_row">
+                <div id="m_block1" class="m_block m_block1">
+                    <p>1</p>
+                </div>
+                <div id="m_block2" class="m_block m_block2">
+                    <p>2</p>
+                </div>
+            </div>
+
+            <div class="m_row m_center">
+                <button id="btn1" class="m_btn">
+                    Anti-Clockwise
+                </button>
+                <button id="btn2" class="m_btn">
+                    Clockwise
+                </button>
+            </div>
+
+            <div class="m_row">
+                <div id="m_block4" class="m_block m_block4">
+                    <p>4</p>
+                </div>
+                <div id="m_block3" class="m_block m_block3">
+                    <p>3</p>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#btn1').on('click', function(e) {
+                e.preventDefault();
+                console.log("btn11");
+
+                var a = $('#m_block1').attr('class');
+                var b = $('#m_block2').attr('class');
+                var c = $('#m_block3').attr('class');
+                var d = $('#m_block4').attr('class');
+
+                $('#m_block1').removeClass();
+                $('#m_block2').removeClass();
+                $('#m_block3').removeClass();
+                $('#m_block4').removeClass();
+
+                $('#m_block1').addClass(b);
+                $('#m_block2').addClass(c);
+                $('#m_block3').addClass(d);
+                $('#m_block4').addClass(a);
+
+            });
+
+            $('#btn2').on('click', function(e) {
+                e.preventDefault();
+                console.log("btnhhh");
+
+                var a = $('#m_block1').attr('class');
+                var b = $('#m_block2').attr('class');
+                var c = $('#m_block3').attr('class');
+                var d = $('#m_block4').attr('class');
+
+                $('#m_block1').removeClass();
+                $('#m_block2').removeClass();
+                $('#m_block3').removeClass();
+                $('#m_block4').removeClass();
+
+                $('#m_block1').addClass(d);
+                $('#m_block2').addClass(a);
+                $('#m_block3').addClass(b);
+                $('#m_block4').addClass(c);
+
+            });
+
+        });
+    </script>
+
+
+</body>
+
+</html>
